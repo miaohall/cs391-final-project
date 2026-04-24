@@ -31,7 +31,8 @@ const StyledBox = styled.div`
     padding: 2%;
     border-radius: 20px;
     border: 10px double #b3beff;
-    max-width: 25%;
+    width: 25%;
+    height: 70%;
     margin: 2%;
     
     box-shadow:0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
