@@ -5,7 +5,7 @@ import Link from "next/link";
 
 
 const StyledDiv = styled.div`
-    width: 80vw;
+    width: 85vw;
     margin: 0 auto;
     background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);
     display: flex;

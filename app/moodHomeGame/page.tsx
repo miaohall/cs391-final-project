@@ -11,10 +11,13 @@ import Playlist from "../../components/Playlist";
   Logic: manages selected mood and passes it to components
 */
 
+//NOTE - height still needs to be fixed
 const Wrapper = styled.div`
-    padding: 2rem;
-    min-height: 100vh;
     font-family: monospace;
+    width: 85vw;
+    margin: 0 auto;
+    height: 210vh;
+    background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);
 `;
 
 const Title = styled.h1`

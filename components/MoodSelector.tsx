@@ -11,10 +11,10 @@ interface Props {
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 2%;
 `;
 
 const Button = styled.button`

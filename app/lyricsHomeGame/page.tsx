@@ -45,9 +45,11 @@ export default function Home() {
     return (
         <main
             style={{
-                backgroundColor: "var(--background)",
+                backgroundImage: "linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2)",
+                width: "85vw",
+                margin: "0 auto",
+                height: "100vh",
                 color: "var(--foreground)",
-                minHeight: "100vh",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",

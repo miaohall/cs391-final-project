@@ -51,8 +51,9 @@ const moodMap: Record<string, string[]> = {
 };
 
 const Section = styled.div`
-  max-width: 1100px;
-  margin: 0 auto;
+    width: 80vw;
+    margin: 0 auto;
+    
 `;
 
 const TopRow = styled.div`
@@ -62,13 +63,13 @@ const TopRow = styled.div`
 `;
 
 const RefreshButton = styled.button`
-  padding: 0.75rem 1.2rem;
+  padding: 1% 2%;
   border: none;
   border-radius: 999px;
   background: #222;
   color: white;
   cursor: pointer;
-  font-size: 0.95rem;
+    font-size: calc(2px + 1.2vw);
 
   &:hover {
     opacity: 0.9;
@@ -162,11 +163,11 @@ export default function Playlist({ mood }: Props) {
     }
 
     if (loading) {
-        return <Message>Loading songs for {`/${mood}`}...</Message>;
+        return <Message>Loading songs for {`${mood}`}...</Message>;
     }
 
     if (songs.length === 0) {
-        return <Message>No songs found for {`/${mood}`}.</Message>;
+        return <Message>No songs found for {`${mood}`}.</Message>;
     }
 
     return (

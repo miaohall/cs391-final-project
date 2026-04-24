@@ -12,7 +12,7 @@ const StationWrapper = styled.div`
     font-family: monospace;
     margin: 2% 1%;
     padding: 1%;
-    max-width: 25%;
+    max-width: 28%;
     background-color: #e6f2ff;
     border: 5px solid white;
     border-radius: 10px;

@@ -19,17 +19,17 @@ interface Props {
 }
 
 const Card = styled.div`
-  background: white;
-  padding: 1rem;
-  border-radius: 12px;
-  text-align: center;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 12px;
+    text-align: center;
 `;
 
 const Img = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
 `;
 
 export default function SongCard({ song }: Props) {
