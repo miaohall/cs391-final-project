@@ -73,7 +73,7 @@ export default function Home() {
                 <StyledBox>
                     <h2>Feature 3:</h2>
                     <h3>Guess the song from the lyric!</h3>
-                    <StyledButton href="/radioHomeGame">Check out now</StyledButton>
+                    <StyledButton href="/lyricsHomeGame">Check out now</StyledButton>
                 </StyledBox>
             </AllBoxes>
         </StyledDiv>

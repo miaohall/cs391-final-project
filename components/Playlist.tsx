@@ -166,7 +166,7 @@ export default function Playlist({ mood }: Props) {
     }
 
     if (songs.length === 0) {
-        return <Message>No songs found for ${`/${mood}`}.</Message>;
+        return <Message>No songs found for {`/${mood}`}.</Message>;
     }
 
     return (
