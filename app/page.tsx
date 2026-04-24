@@ -1,27 +1,80 @@
-"use client";
-
 import styled from "styled-components";
-import {useState} from "react";
 import Link from "next/link";
 
-//HOME PAGE??
+//Section made by Mia O'Halloran
+
+
+const StyledDiv = styled.div`
+    width: 80vw;
+    margin: 0 auto;
+    background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: monospace;
+`;
+
+const AllBoxes = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
+const StyledBox = styled.div`
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #e6f2ff;
+    align-items: center;
+    padding: 2%;
+    border-radius: 20px;
+    border: 10px double #b3beff;
+    margin: 2%;
+    max-width: 30%;
+    box-shadow:0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+`;
+
+
+const StyledButton = styled(Link)`
+    text-decoration: none;
+    color: black;
+    background-color: #b3beff;
+    padding: 2% 8%;
+    border-radius: 15px;
+    font-size: calc(2px + 1.1vw);
+    
+    &:hover {
+        background-color: white;
+    }
+`;
+
 
 export default function Home() {
-    const [something, setSomething] = useState("");
 
     return (
         <StyledDiv>
-            <h1>Pick a Game!</h1>
+            <h1>Welcome to our music app!</h1>
+            <h2>Choose below from 3 different features:</h2>
             <br/> <br/><br/>
-            <StyledBox>
-                <StyledButton href={`/${something}`}>Game 1</StyledButton>
-            </StyledBox>
-            <StyledBox>
-                <StyledButton href={`/${something}`}>Game 2</StyledButton>
-            </StyledBox>
-            <StyledBox>
-                <StyledButton href={`/${something}`}>Game 3</StyledButton>
-            </StyledBox>
+            <AllBoxes>
+                <StyledBox>
+                    <h2>Feature 1:</h2>
+                    <h3>Find radio stations in your country and add them to your favorites list!</h3>
+                    <StyledButton href="/radioHomeGame">Check out now</StyledButton>
+                </StyledBox>
+                <StyledBox>
+                    <h2>Feature 2:</h2>
+                    <h3>Discover songs based off your mode!</h3>
+                    <StyledButton href="/radioHomeGame">Check out now</StyledButton>
+                </StyledBox>
+                <StyledBox>
+                    <h2>Feature 3:</h2>
+                    <h3>Guess the song from the lyric!</h3>
+                    <StyledButton href="/radioHomeGame">Check out now</StyledButton>
+                </StyledBox>
+            </AllBoxes>
         </StyledDiv>
     );
 }
