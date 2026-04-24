@@ -162,11 +162,11 @@ export default function Playlist({ mood }: Props) {
     }
 
     if (loading) {
-        return <Message>Loading songs for "{mood}"...</Message>;
+        return <Message>Loading songs for {`/${mood}`}...</Message>;
     }
 
     if (songs.length === 0) {
-        return <Message>No songs found for "{mood}".</Message>;
+        return <Message>No songs found for ${`/${mood}`}.</Message>;
     }
 
     return (

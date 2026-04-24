@@ -61,7 +61,7 @@ export default function Home() {
             <br/> <br/><br/>
             <AllBoxes>
                 <StyledBox>
-                    <h2>Feature 3:</h2>
+                    <h2>Feature 1:</h2>
                     <h3>Discover songs based off your mood!</h3>
                     <StyledButton href="/moodHomeGame">Check out now</StyledButton>
                 </StyledBox>

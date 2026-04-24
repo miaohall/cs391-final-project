@@ -74,7 +74,7 @@ export default function LocationPage() {
                 <h2>Favorites:</h2>
                 <p>{favs.map((station: Station, index: number) => (
                     <span key={station.stationuuid}>
-                        <a href={station.url_resolved} target="_blank">{station.name}</a>
+                        <a href={station.url_resolved}>{station.name}</a>
                         {index < favs.length - 1 ? ", " : ""}</span>))}
                 </p>
             </FavsWrapper>
