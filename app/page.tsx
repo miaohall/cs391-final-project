@@ -31,8 +31,9 @@ const StyledBox = styled.div`
     padding: 2%;
     border-radius: 20px;
     border: 10px double #b3beff;
+    max-width: 25%;
     margin: 2%;
-    max-width: 30%;
+    
     box-shadow:0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 
@@ -60,13 +61,13 @@ export default function Home() {
             <br/> <br/><br/>
             <AllBoxes>
                 <StyledBox>
-                    <h2>Feature 1:</h2>
-                    <h3>Find radio stations in your country and add them to your favorites list!</h3>
-                    <StyledButton href="/radioHomeGame">Check out now</StyledButton>
+                    <h2>Feature 3:</h2>
+                    <h3>Discover songs based off your mood!</h3>
+                    <StyledButton href="/moodHomeGame">Check out now</StyledButton>
                 </StyledBox>
                 <StyledBox>
                     <h2>Feature 2:</h2>
-                    <h3>Discover songs based off your mode!</h3>
+                    <h3>Find radio stations in your country and make a favorites list!</h3>
                     <StyledButton href="/radioHomeGame">Check out now</StyledButton>
                 </StyledBox>
                 <StyledBox>

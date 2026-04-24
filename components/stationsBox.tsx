@@ -11,8 +11,8 @@ const StationWrapper = styled.div`
     text-align: center;
     font-family: monospace;
     margin: 2% 1%;
-    padding: 3%;
-    max-width: 22%;
+    padding: 1%;
+    max-width: 25%;
     background-color: #e6f2ff;
     border: 5px solid white;
     border-radius: 10px;
@@ -54,6 +54,9 @@ export default function StationsBox(props: Station & {isFav: boolean, onFavClick
             <StyledSubtext><strong>Region:</strong> {props.state}</StyledSubtext>
             <StyledSubtext><strong>Tags:</strong> {props.tags}</StyledSubtext>
             <StyledSubtext><strong>Language:</strong> {props.language}</StyledSubtext>
+            <StyledSubtext>
+                <a href={props.url_resolved}><strong>Listen now!</strong></a>
+                </StyledSubtext>
             <FavButton onClick={props.onFavClick}>
                 {props.isFav ? "Remove from favorites" : "Add to favorites"}
             </FavButton>

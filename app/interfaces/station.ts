@@ -9,5 +9,6 @@ export type Station = {
     state: string;
     language: string;
     votes: number;
+    url: string;
     url_resolved: string;
 }

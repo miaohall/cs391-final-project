@@ -30,9 +30,16 @@ const RadioBoxsContainer = styled.div`
 
 const FavsWrapper = styled.div`
     align-items: center;
-    color: black;
     font-size: calc(2px + 1.5vw);
     background-color: white;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow:0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4% 7%;
+    padding: 1% 4%;
 `;
 
 export default function LocationPage() {
@@ -50,6 +57,7 @@ export default function LocationPage() {
     //sort stations by most popular
     const datas = Array.isArray(data) ? [...data].sort((a, b) => b.votes - a.votes) : [];
 
+    //toggle function for adding/removing stations from favorites list
     function handleFavClick(station: Station) {
         setFavs(prev =>
         prev.some(s=> s.stationuuid === station.stationuuid)
@@ -64,7 +72,11 @@ export default function LocationPage() {
 
             <FavsWrapper>
                 <h2>Favorites:</h2>
-                <p>{favs.map(s => s.name).join(", ")}</p>
+                <p>{favs.map((station: Station, index: number) => (
+                    <span key={station.stationuuid}>
+                        <a href={station.url_resolved} target="_blank">{station.name}</a>
+                        {index < favs.length - 1 ? ", " : ""}</span>))}
+                </p>
             </FavsWrapper>
             <RadioBoxsContainer>
                 {
@@ -79,6 +91,7 @@ export default function LocationPage() {
                                 state={station.state}
                                 language={station.language}
                                 votes={station.votes}
+                                url={station.url}
                                 url_resolved={station.url_resolved}
                                 isFav={favs.some(s => s.stationuuid === station.stationuuid)}
                                 onFavClick = {() => handleFavClick(station)}
