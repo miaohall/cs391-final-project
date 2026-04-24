@@ -10,7 +10,7 @@ export async function GET(request: Request): Promise<NextResponse> {
     const countrycode = searchParams.get("countrycode");
 
     if (!countrycode) {
-        return NextResponse.json({error: "State invalid or not provided"}, {status:400});
+        return NextResponse.json({error: "Country invalid or not provided"}, {status:400});
     }
 
     const res = await fetch(`https://de1.api.radio-browser.info/json/stations/search?countrycode=${countrycode}&limit=20`)
