@@ -10,7 +10,7 @@ import SongCard, { Song } from "./SongCard";
   Logic:
   - fetches songs based on the selected mood
   - shuffles the results so the playlist feels different each time
-  - allows the user to refresh the displayed playlist without choosing a new mood
+  - lets the user refresh the playlist without choosing a new mood
 */
 
 interface Props {
@@ -18,84 +18,62 @@ interface Props {
 }
 
 const moodMap: Record<string, string[]> = {
-    happy: [
-        "upbeat pop hits",
-        "feel good songs",
-        "summer vibes",
-        "dance pop",
-    ],
-    sad: [
-        "emotional songs",
-        "sad piano",
-        "heartbreak songs",
-        "slow ballads",
-    ],
-    chill: [
-        "lofi chill beats",
-        "relaxing music",
-        "ambient chill",
-        "acoustic vibes",
-    ],
-    workout: [
-        "gym music",
-        "high energy songs",
-        "EDM workout",
-        "rap workout",
-    ],
-    focus: [
-        "study music",
-        "instrumental focus",
-        "deep focus",
-        "classical study",
-    ],
+    happy: ["upbeat pop hits", "feel good songs", "dance pop"],
+    sad: ["emotional songs", "sad piano", "heartbreak songs", "slow ballads"],
+    chill: ["lofi chill beats", "relaxing music", "ambient chill"],
+    workout: ["gym music", "high energy songs", "EDM workout", "rap workout"],
+    focus: ["study music", "instrumental focus", "deep focus", "classical study"],
 };
 
 const Section = styled.div`
-    width: 80vw;
+    width: min(95vw, 1300px);
     margin: 0 auto;
-    
+    padding: 2%;
+    box-sizing: border-box;
 `;
 
 const TopRow = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 `;
 
 const RefreshButton = styled.button`
-  padding: 1% 2%;
-  border: none;
-  border-radius: 999px;
-  background: #222;
-  color: white;
-  cursor: pointer;
-    font-size: calc(2px + 1.2vw);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 999px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+    font-size: calc(2px + 1.1vw);
 
-  &:hover {
-    opacity: 0.9;
-  }
+    &:hover {
+        opacity: 0.9;
+    }
 `;
 
 const Message = styled.p`
-  text-align: center;
-  color: #666;
+    text-align: center;
+    color: #444;
+    font-size: calc(2px + 1.1vw);
+    margin: 24px 0;
 `;
 
 const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin: 2%;
 `;
 
 function shuffleSongs(array: Song[]): Song[] {
-    const copiedArray = [...array];
+    const copied = [...array];
 
-    for (let i = copiedArray.length - 1; i > 0; i--) {
+    for (let i = copied.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [copiedArray[i], copiedArray[j]] = [copiedArray[j], copiedArray[i]];
+        [copied[i], copied[j]] = [copied[j], copied[i]];
     }
 
-    return copiedArray;
+    return copied;
 }
 
 export default function Playlist({ mood }: Props) {
@@ -103,8 +81,8 @@ export default function Playlist({ mood }: Props) {
     const [songs, setSongs] = useState<Song[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
-    const generateRandomPlaylist = (songList: Song[]) => {
-        const shuffled = shuffleSongs(songList);
+    const generatePlaylist = (list: Song[]) => {
+        const shuffled = shuffleSongs(list);
         setSongs(shuffled.slice(0, 10));
     };
 
@@ -120,7 +98,6 @@ export default function Playlist({ mood }: Props) {
                 setLoading(true);
 
                 const options = moodMap[mood] || [mood];
-
                 const randomSearch =
                     options[Math.floor(Math.random() * options.length)];
 
@@ -131,19 +108,18 @@ export default function Playlist({ mood }: Props) {
                 );
 
                 const data = await res.json();
-                const fetchedSongs: Song[] = data.results || [];
+                const results: Song[] = data.results || [];
 
-                const filteredSongs = fetchedSongs.filter(
+                const filtered = results.filter(
                     (song) =>
                         song.trackName &&
                         !song.trackName.toLowerCase().includes(mood.toLowerCase())
                 );
 
-                setAllSongs(filteredSongs);
-                generateRandomPlaylist(filteredSongs);
-
-            } catch (error) {
-                console.error("Error fetching songs:", error);
+                setAllSongs(filtered);
+                generatePlaylist(filtered);
+            } catch (err) {
+                console.error("Error fetching songs:", err);
                 setAllSongs([]);
                 setSongs([]);
             } finally {
@@ -155,34 +131,38 @@ export default function Playlist({ mood }: Props) {
     }, [mood]);
 
     const handleRefresh = () => {
-        generateRandomPlaylist(allSongs);
+        generatePlaylist(allSongs);
     };
-
-    if (!mood) {
-        return <Message>Select a mood to get songs.</Message>;
-    }
-
-    if (loading) {
-        return <Message>Loading songs for {`${mood}`}...</Message>;
-    }
-
-    if (songs.length === 0) {
-        return <Message>No songs found for {`${mood}`}.</Message>;
-    }
 
     return (
         <Section>
-            <TopRow>
-                <RefreshButton onClick={handleRefresh}>
-                    Refresh Playlist
-                </RefreshButton>
-            </TopRow>
+            {!mood && <Message>Select a mood to get songs.</Message>}
 
-            <Grid>
-                {songs.map((song) => (
-                    <SongCard key={song.trackId} song={song} />
-                ))}
-            </Grid>
+            {loading && (
+                <TopRow>
+                    <Message>Loading songs for {mood}...</Message>
+                </TopRow>
+            )}
+
+            {!loading && songs.length > 0 && (
+                <>
+                    <TopRow>
+                        <RefreshButton onClick={handleRefresh}>
+                            Refresh Playlist
+                        </RefreshButton>
+                    </TopRow>
+
+                    <Grid>
+                        {songs.map((song) => (
+                            <SongCard key={song.trackId} song={song} />
+                        ))}
+                    </Grid>
+                </>
+            )}
+
+            {!loading && mood && songs.length === 0 && (
+                <Message>No songs found.</Message>
+            )}
         </Section>
     );
 }

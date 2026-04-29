@@ -13,13 +13,18 @@ import Playlist from "../../components/Playlist";
 
 const Wrapper = styled.div`
     font-family: monospace;
-    margin: 0 auto;
-    height: 210vh;
+    height: 100vh;
+    margin: 0;
+    padding-bottom: 40px;
+    box-sizing: border-box;
     background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);
+    overflow-x: hidden;
 `;
 
 const Title = styled.h1`
     text-align: center;
+    margin: 0;
+    padding-top: 40px;
 `;
 
 export default function Home() {
@@ -28,7 +33,6 @@ export default function Home() {
     return (
         <Wrapper>
             <Title>MoodMix 🎵</Title>
-
             <MoodSelector setMood={setMood} />
             <Playlist mood={mood} />
         </Wrapper>
