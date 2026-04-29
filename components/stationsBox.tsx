@@ -29,13 +29,15 @@ const StationWrapper = styled.div`
 
 const StyledSubtext = styled.p`
     font-size: calc(2px + 1.4vw);
+    padding: 3.5%;
 `;
 
 const FavButton=styled.button`
     background-color: #60308c;
     font-family: monospace;
     color: white;
-    padding: 3% 5%;
+    padding: 3.5% 5%;
+    margin: 4.5%;
     border-radius: 10px;
     border: none;
     font-size: calc(2px + 1.4vw);

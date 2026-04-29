@@ -32,6 +32,7 @@ const StyledBox = styled.div`
 `;
 
 const StyledInput = styled.input`
+    margin-top: 3%;
     font-size: calc(2px + 1.6vw);
     max-width: 50%;
 `;
@@ -56,7 +57,7 @@ export default function Home() {
     return (
         <StyledDiv>
             <StyledBox>
-                <h1>Find your favorite radio stations!</h1>
+                <h1>Find your favorite radio stations!</h1><br/><br/>
                 <p>Enter a country by country code (for example, US, CA, GB):</p>
                 <StyledInput type="text" value={countrycode} onChange={(e) => setCountrycode(e.target.value)}/>
                 <br/> <br/><br/>
