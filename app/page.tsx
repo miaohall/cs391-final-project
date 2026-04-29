@@ -5,7 +5,6 @@ import Link from "next/link";
 //app home page
 
 const StyledDiv = styled.div`
-    width: 85vw;
     margin: 0 auto;
     background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);
     display: flex;
@@ -33,7 +32,7 @@ const StyledBox = styled.div`
     border: 10px double #b3beff;
     width: 30%;
     height: 70%;
-    margin: 4% 1.5%;
+    margin: 4% 2%;
     
     box-shadow:0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;

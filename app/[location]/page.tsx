@@ -10,7 +10,6 @@ import {useState} from "react";
 //section made by Mia O'Halloran
 
 const RadioWrapper = styled.div`
-    width: 85vw;
     margin: 0 auto;
     box-sizing: border-box;
     background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);

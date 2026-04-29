@@ -13,7 +13,6 @@ import Playlist from "../../components/Playlist";
 
 const Wrapper = styled.div`
     font-family: monospace;
-    width: 85vw;
     margin: 0 auto;
     height: 210vh;
     background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);
