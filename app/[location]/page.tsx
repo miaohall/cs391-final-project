@@ -46,6 +46,7 @@ export default function LocationPage() {
     const params = useParams();
     const [favs, setFavs] = useState<Station[]>([]);
 
+    //fetch and handle api call
     const {data, error} = useSWR(`/api/getStationData?countrycode=${params.location}`, (url: string) =>
         fetch(url)
             .then((res) => res.json())
@@ -58,6 +59,8 @@ export default function LocationPage() {
     const datas = Array.isArray(data) ? [...data].sort((a, b) => b.votes - a.votes) : [];
 
     //toggle function for adding/removing stations from favorites list
+    //if already in favorites - remove
+    //of not in favorites - add
     function handleFavClick(station: Station) {
         setFavs(prev =>
         prev.some(s=> s.stationuuid === station.stationuuid)

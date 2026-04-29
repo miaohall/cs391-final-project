@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 //Section made by Mia O'Halloran
-
+//app home page
 
 const StyledDiv = styled.div`
     width: 85vw;

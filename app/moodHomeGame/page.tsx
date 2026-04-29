@@ -11,7 +11,6 @@ import Playlist from "../../components/Playlist";
   Logic: manages selected mood and passes it to components
 */
 
-//NOTE - height still needs to be fixed
 const Wrapper = styled.div`
     font-family: monospace;
     width: 85vw;

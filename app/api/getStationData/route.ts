@@ -2,13 +2,13 @@ import {NextResponse} from "next/server";
 
 //Section made by Mia O'Halloran
 
-
-//fetch api
+//fetch api and filter by specified country code
 export async function GET(request: Request): Promise<NextResponse> {
     const {searchParams} = new URL(request.url);
 
     const countrycode = searchParams.get("countrycode");
 
+    //invalid input
     if (!countrycode) {
         return NextResponse.json({error: "Country invalid or not provided"}, {status:400});
     }

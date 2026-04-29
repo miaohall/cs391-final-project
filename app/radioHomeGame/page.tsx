@@ -50,7 +50,6 @@ const StyledButton = styled(Link)`
     }
 `;
 
-
 export default function Home() {
     const [countrycode, setCountrycode] = useState("");
 
