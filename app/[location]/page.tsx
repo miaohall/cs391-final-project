@@ -8,6 +8,7 @@ import {Station} from "@/app/interfaces/station";
 import {useState} from "react";
 
 //section made by Mia O'Halloran
+//Location Page
 
 const RadioWrapper = styled.div`
     margin: 0 auto;

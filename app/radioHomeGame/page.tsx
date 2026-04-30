@@ -6,6 +6,8 @@ import Link from "next/link";
 
 //Section made by Mia O'Halloran
 
+//home page for radio station feature
+
 const StyledDiv = styled.div`
     margin: 0 auto;
     background-image: linear-gradient(to bottom, #ccdcff, #b3beff, #9a99f2);

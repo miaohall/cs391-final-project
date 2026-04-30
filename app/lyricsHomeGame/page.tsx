@@ -1,6 +1,6 @@
 "use client";
 
-//Sarah's Part (main page logic and interface)
+//Sarah Altouq's Part (main page logic and interface)
 
 import {useEffect, useState} from "react";
 import Link from "next/link";

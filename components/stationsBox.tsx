@@ -3,6 +3,8 @@ import {Station} from "@/app/interfaces/station";
 
 //Section made by Mia O'Halloran
 
+//each box is a pulled radio station from api with basic information attached
+
 const StationWrapper = styled.div`
     display: flex;
     flex-direction: column;

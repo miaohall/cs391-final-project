@@ -1,6 +1,8 @@
 
 //section made by Mia O'Halloran
 
+//radio station features
+
 export type Station = {
     stationuuid: string;
     name: string;
