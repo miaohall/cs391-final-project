@@ -28,7 +28,7 @@ const moodMap: Record<string, string[]> = {
 const Section = styled.div`
     width: min(95vw, 1300px);
     margin: 0 auto;
-    padding: 2%;
+    padding: clamp(16px, 4vw, 40px);
     box-sizing: border-box;
 `;
 
@@ -42,10 +42,11 @@ const RefreshButton = styled.button`
     padding: 10px 20px;
     border: none;
     border-radius: 999px;
+
     background: #222;
     color: white;
     cursor: pointer;
-    font-size: calc(2px + 1.1vw);
+    font-size: clamp(14px, 1.5vw, 18px);
 
     &:hover {
         opacity: 0.9;
@@ -55,14 +56,14 @@ const RefreshButton = styled.button`
 const Message = styled.p`
     text-align: center;
     color: #444;
-    font-size: calc(2px + 1.1vw);
+    font-size: 16px;
     margin: 24px 0;
 `;
 
 const Grid = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    margin: 2%;
+    gap: clamp(16px, 3vw, 32px);
 `;
 
 function shuffleSongs(array: Song[]): Song[] {
